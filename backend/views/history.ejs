@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload History</title>
 </head>
 <body>
-  This is the page for History
-  <!-- <form action="/users" method="POST">
-    <label>First Name
-      <input type="text" name="firstName" value="<%= locals.firstName %>" />
-    </label>
-    <button type="submit">Submit</button>
-  </form> -->
+    <h1>Uploaded Images History</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Prediction</th>
+            <th>Upload Time</th>
+        </tr>
+        <% history.forEach(item => { %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><img src="/uploads/<%= item.image_name %>" alt="Image" width="100"></td>
+                <td><%= item.predicted_class %></td>
+                <td><%= item.upload_time %></td>
+            </tr>
+        <% }); %>
+    </table>
 </body>
 </html>
